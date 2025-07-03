@@ -1,0 +1,72 @@
+## Feature Design 
+
+### SignIn
+
+- request 
+{
+  *email : String,
+  *password : String,
+}
+
+- response
+
+Success
+Http Status - 200 (OK)
+{
+  code : "SU",
+  message : "Success",
+  token: "jwt",
+  expiredDate: 123456789
+}
+
+Fail
+- Sing Fail
+Http Status - 401 (Unauthorized)
+{
+  code : "SF",
+  message: "Sign in Failed"
+}
+
+- Database Fail
+Http Status - 500 (Internal Server Error)
+{
+  code : "DE",
+  message : "Database Error"
+}
+
+
+### Sign Up
+
+- request
+
+{
+  *email : String,
+  *password : String,
+  *name : String,
+}
+
+- response
+
+Success
+Http Status - 200 (OK)
+{
+  code : "SU",
+  message : "Success"
+}
+
+
+Fail
+
+- Duplicate email
+Http Status - 400 (Bad Request)
+{
+  code : "EE",
+  message: "Existed Email"
+}
+
+- Database Fail
+Http Status - 500 (Internal Server Error)
+{
+  code : "DE",
+  message : "Database Error"
+}
